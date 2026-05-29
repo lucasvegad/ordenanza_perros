@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Comparativo Bienestar Animal | Parlamento Municipal de la Mujer — Montecarlo</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --olive:#8B9557;--olive-light:#F0F2E8;--olive-mid:#6B7440;
+  --rose:#C45573;--rose-light:#FAF0F3;--rose-mid:#A03A58;
+  --charcoal:#2D2D2D;--gray:#5A5A54;--gray-light:#8A8A84;
+  --bg:#FFFFFF;--bg-sec:#F7F7F5;--bg-card:#FFFFFF;
+  --border:#E2E2DC;--border-strong:#C8C8C0;
+  --blue:#3A7FC1;--blue-light:#EEF4FB;
+  --red:#C14040;--red-light:#FAEAEA;
+  --amber:#9A7020;--amber-light:#FBF5E8;
+}
+body{background:var(--bg-sec);color:var(--charcoal);font-family:'Segoe UI',Inter,system-ui,sans-serif;font-size:15px;line-height:1.6}
+
+/* HEADER */
+.site-header{background:#fff;border-bottom:3px solid var(--rose);padding:0 1.5rem}
+.header-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:1.25rem;padding:.875rem 0;flex-wrap:wrap}
+.logo-wrap{display:flex;align-items:center;gap:.875rem}
+.logo-icon{width:52px;height:52px;flex-shrink:0}
+.logo-text-block{line-height:1.25}
+.logo-sup{font-size:11px;color:var(--gray-light);font-weight:500;letter-spacing:.3px}
+.logo-main{font-size:20px;font-weight:700;color:var(--charcoal)}
+.logo-main em{font-style:normal;color:var(--rose)}
+.logo-sub{font-size:12px;color:var(--gray);font-weight:500}
+.header-divider{width:1px;height:40px;background:var(--border);display:none}
+@media(min-width:600px){.header-divider{display:block}}
+.header-meta{flex:1;min-width:180px}
+.header-title{font-size:15px;font-weight:600;color:var(--charcoal)}
+.header-sub-txt{font-size:12px;color:var(--gray-light);margin-top:1px}
+.header-badge{margin-left:auto;background:var(--olive-light);color:var(--olive-mid);font-size:11px;font-weight:600;padding:4px 12px;border-radius:20px;white-space:nowrap;border:1px solid #d0d5b8}
+
+/* HERO */
+.hero{background:#fff;border-bottom:1px solid var(--border);padding:1.75rem 1.5rem}
+.hero-inner{max-width:1100px;margin:0 auto}
+.hero-eyebrow{font-size:11px;font-weight:700;letter-spacing:.8px;color:var(--rose);text-transform:uppercase;margin-bottom:.5rem}
+.hero-title{font-size:20px;font-weight:700;color:var(--charcoal);margin-bottom:.3rem}
+.hero-sub{font-size:13px;color:var(--gray);margin-bottom:1.25rem}
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}
+.stat-card{background:var(--bg-sec);border:1px solid var(--border);border-radius:10px;padding:.875rem;text-align:center}
+.stat-num{font-size:26px;font-weight:700;line-height:1}
+.stat-label{font-size:11px;color:var(--gray);margin-top:3px;line-height:1.35}
+.stat-card.olive .stat-num{color:var(--olive-mid)}
+.stat-card.rose .stat-num{color:var(--rose)}
+.stat-card.blue .stat-num{color:var(--blue)}
+.stat-card.red .stat-num{color:var(--red)}
+.stat-card.charcoal .stat-num{color:var(--charcoal)}
+.stat-card.amber .stat-num{color:var(--amber)}
+
+/* FILTERS */
+.filters-bar{background:#fff;border-bottom:1px solid var(--border);padding:.625rem 1.5rem;position:sticky;top:0;z-index:50}
+.filters-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.filter-label{font-size:11px;color:var(--gray-light);font-weight:600;margin-right:2px;white-space:nowrap}
+.filter-btn{background:transparent;border:1.5px solid var(--border);color:var(--gray);font-size:12px;font-weight:600;padding:4px 12px;border-radius:20px;cursor:pointer;transition:all .15s;white-space:nowrap}
+.filter-btn:hover{border-color:var(--border-strong);color:var(--charcoal)}
+.filter-btn.active.all{background:var(--charcoal);color:#fff;border-color:var(--charcoal)}
+.filter-btn.active.nuevo{background:var(--olive);color:#fff;border-color:var(--olive)}
+.filter-btn.active.modificado{background:var(--blue);color:#fff;border-color:var(--blue)}
+.filter-btn.active.eliminado{background:var(--red);color:#fff;border-color:var(--red)}
+.filter-btn.active.polemico{background:var(--rose);color:#fff;border-color:var(--rose)}
+.search-wrap{margin-left:auto}
+.search-input{background:var(--bg-sec);border:1.5px solid var(--border);color:var(--charcoal);font-size:13px;padding:5px 12px;border-radius:8px;outline:none;width:180px}
+.search-input::placeholder{color:var(--gray-light)}
+.search-input:focus{border-color:var(--olive)}
+
+/* MAIN */
+.main{max-width:1100px;margin:0 auto;padding:1.25rem 1.5rem 3rem}
+.section{margin-bottom:2rem}
+.section-header{display:flex;align-items:center;gap:.625rem;margin-bottom:.875rem;padding-bottom:.5rem;border-bottom:2px solid var(--border)}
+.section-num{background:var(--olive-light);color:var(--olive-mid);font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;white-space:nowrap}
+.section-title{font-size:15px;font-weight:700;color:var(--charcoal)}
+.section-count{margin-left:auto;font-size:11px;color:var(--gray-light)}
+
+/* CARDS */
+.card{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;margin-bottom:10px;overflow:hidden;transition:box-shadow .15s,border-color .15s}
+.card:hover{box-shadow:0 2px 12px rgba(0,0,0,.07);border-color:var(--border-strong)}
+.card.hidden{display:none}
+.card-header{display:flex;align-items:center;gap:.625rem;padding:.625rem .875rem;background:var(--bg-sec);border-bottom:1px solid var(--border);flex-wrap:wrap;gap:.5rem}
+.card-art-badge{font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;white-space:nowrap;flex-shrink:0}
+.card-art-badge.new{background:var(--olive-light);color:var(--olive-mid);border:1px solid #d0d5b8}
+.card-art-badge.mod{background:var(--blue-light);color:var(--blue);border:1px solid #bdd3ea}
+.card-art-badge.del{background:var(--red-light);color:var(--red);border:1px solid #e8c0c0}
+.card-art-badge.pol{background:var(--rose-light);color:var(--rose-mid);border:1px solid #e8c0ce}
+.card-title{font-size:13px;font-weight:600;color:var(--charcoal);flex:1;min-width:120px}
+.badge-row{display:flex;gap:5px;flex-wrap:wrap;flex-shrink:0}
+.badge{font-size:10px;font-weight:700;padding:2px 7px;border-radius:3px}
+.badge.nuevo{background:var(--olive-light);color:var(--olive-mid)}
+.badge.modificado{background:var(--blue-light);color:var(--blue)}
+.badge.eliminado{background:var(--red-light);color:var(--red)}
+.badge.polemico{background:var(--rose-light);color:var(--rose-mid)}
+.badge.nuevo-tipo{background:#F0EAF8;color:#7040A0}
+
+.card-body{display:grid;grid-template-columns:1fr 1fr}
+@media(max-width:600px){.card-body{grid-template-columns:1fr}}
+.card-body.single{grid-template-columns:1fr}
+.col-old{padding:.875rem;border-right:1px solid var(--border);background:#FAFAF8}
+@media(max-width:600px){.col-old{border-right:none;border-bottom:1px solid var(--border)}}
+.col-new{padding:.875rem}
+.col-label{font-size:9px;font-weight:700;letter-spacing:.7px;text-transform:uppercase;margin-bottom:.375rem}
+.col-label.old{color:var(--gray-light)}
+.col-label.new{color:var(--olive)}
+.col-label.del{color:var(--red)}
+.col-art{font-size:11px;font-weight:600;color:var(--gray);margin-bottom:.3rem}
+.col-text{font-size:13px;color:var(--gray);line-height:1.55}
+.col-text strong{color:var(--charcoal);font-weight:600}
+.hl{background:rgba(139,149,87,.15);color:var(--olive-mid);padding:0 3px;border-radius:3px;font-weight:500}
+.hl-rose{background:rgba(196,85,115,.1);color:var(--rose-mid);padding:0 3px;border-radius:3px;font-weight:500}
+.hl-red{background:rgba(193,64,64,.1);color:var(--red);padding:0 3px;border-radius:3px;font-weight:500}
+
+.polemico-callout{background:var(--rose-light);border-left:3px solid var(--rose);border-radius:0 6px 6px 0;padding:.6rem .875rem;margin-top:.75rem;font-size:12px;color:var(--rose-mid);line-height:1.5}
+.polemico-callout-title{font-weight:700;display:block;margin-bottom:2px;font-size:11px;letter-spacing:.3px}
+
+/* TABLE */
+.table-wrap{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;overflow:hidden;overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:13px;min-width:540px}
+thead tr{background:var(--olive-light);border-bottom:1px solid var(--border)}
+th{padding:.6rem 1rem;text-align:left;font-weight:700;font-size:11px;color:var(--olive-mid);letter-spacing:.3px}
+td{padding:.5rem 1rem;border-bottom:1px solid var(--border);color:var(--gray);vertical-align:top}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:var(--bg-sec)}
+.tag{font-size:10px;font-weight:700}
+.tag.nuevo{color:var(--olive-mid)}
+.tag.modificado{color:var(--blue)}
+.tag.eliminado{color:var(--red)}
+.tag.polemico{color:var(--rose-mid)}
+
+.no-results{text-align:center;padding:3rem;color:var(--gray-light);display:none}
+.no-results.visible{display:block}
+
+/* FOOTER */
+footer{background:#fff;border-top:3px solid var(--olive);padding:1.5rem;text-align:center;font-size:12px;color:var(--gray-light)}
+footer strong{color:var(--charcoal)}
+.footer-line{display:flex;align-items:center;justify-content:center;gap:1rem;flex-wrap:wrap;margin-bottom:.5rem}
+.footer-dot{width:6px;height:6px;border-radius:50%;background:var(--rose);display:inline-block}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="logo-wrap">
+      <!-- Logo inline SVG basado en el branding: dos siluetas femeninas, oliva y rosa -->
+      <svg class="logo-icon" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="19" cy="18" rx="10" ry="12" fill="#8B9557" opacity=".85"/>
+        <ellipse cx="33" cy="18" rx="10" ry="12" fill="#C45573" opacity=".85"/>
+        <ellipse cx="19" cy="13" rx="5" ry="6" fill="#fff" opacity=".3"/>
+        <ellipse cx="33" cy="13" rx="5" ry="6" fill="#fff" opacity=".2"/>
+        <rect x="12" y="37" width="28" height="2" rx="1" fill="#C45573" opacity=".6"/>
+      </svg>
+      <div class="logo-text-block">
+        <div class="logo-sup">Parlamento Municipal</div>
+        <div class="logo-main">de la <em>Mujer</em></div>
+        <div class="logo-sub">Montecarlo — Misiones</div>
+      </div>
+    </div>
+    <div class="header-divider"></div>
+    <div class="header-meta">
+      <div class="header-title">Bienestar Animal — Análisis Comparativo</div>
+      <div class="header-sub-txt">Ord. VIII-N°6 vigente vs. Proyecto sustitutivo</div>
+    </div>
+    <div class="header-badge">Secretaría del Digesto</div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Análisis normativo · Mayo 2026</div>
+    <div class="hero-title">Tableau de cambios — Ordenanza de Bienestar Animal</div>
+    <div class="hero-sub">Comparativo artículo por artículo · Cambios sustanciales, estructurales y potencialmente polémicos</div>
+    <div class="stats-grid">
+      <div class="stat-card charcoal"><div class="stat-num">40</div><div class="stat-label">Artículos vigentes (Ord. VIII-N°6)</div></div>
+      <div class="stat-card olive"><div class="stat-num">75</div><div class="stat-label">Artículos nueva versión</div></div>
+      <div class="stat-card olive"><div class="stat-num">35</div><div class="stat-label">Artículos nuevos</div></div>
+      <div class="stat-card blue"><div class="stat-num">18</div><div class="stat-label">Artículos modificados</div></div>
+      <div class="stat-card red"><div class="stat-num">5</div><div class="stat-label">Disposiciones eliminadas</div></div>
+      <div class="stat-card rose"><div class="stat-num">7</div><div class="stat-label">Cambios potencialmente polémicos</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="filters-bar">
+  <div class="filters-inner">
+    <span class="filter-label">Filtrar:</span>
+    <button class="filter-btn active all" data-filter="all">Todos</button>
+    <button class="filter-btn nuevo" data-filter="nuevo">Nuevo</button>
+    <button class="filter-btn modificado" data-filter="modificado">Modificado</button>
+    <button class="filter-btn eliminado" data-filter="eliminado">Eliminado</button>
+    <button class="filter-btn polemico" data-filter="polemico">⚠ Polémico</button>
+    <div class="search-wrap"><input class="search-input" type="search" placeholder="Buscar..." id="searchBox"></div>
+  </div>
+</div>
+
+<main class="main">
+
+<!-- 1 — ESTRUCTURA Y BASE NORMATIVA -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-num">CAPS. I–II</span>
+    <span class="section-title">Estructura y base normativa</span>
+    <span class="section-count">3 cambios</span>
+  </div>
+
+  <div class="card" data-tags="modificado">
+    <div class="card-header">
+      <span class="card-art-badge mod">Art. 1 Vigente / Art. 1 Nueva</span>
+      <span class="card-title">Objeto de la ordenanza</span>
+      <div class="badge-row"><span class="badge modificado">MODIFICADO</span></div>
+    </div>
+    <div class="card-body">
+      <div class="col-old"><div class="col-label old">Vigente</div><div class="col-art">Art. 1°</div><div class="col-text">Protección de especies animales; reglamenta tenencia, control, circulación y sanciones. <strong>Sin base axiológica</strong> ni principios rectores.</div></div>
+      <div class="col-new"><div class="col-label new">Nueva</div><div class="col-art">Art. 1°</div><div class="col-text">Incorpora <span class="hl">bienestar animal</span> como eje. Agrega <span class="hl">control ético poblacional</span> (castración, no eutanasia) y <span class="hl">salud pública</span> como objetivos explícitos del régimen.</div></div>
+    </div>
+  </div>
+
+  <div class="card" data-tags="nuevo">
+    <div class="card-header">
+      <span class="card-art-badge new">Art. 2 — Nueva</span>
+      <span class="card-title">Principios rectores (sin equivalente en la vigente)</span>
+      <div class="badge-row"><span class="badge nuevo">NUEVO</span></div>
+    </div>
+    <div class="card-body single">
+      <div class="col-new"><div class="col-label new">Nueva — Sin equivalente</div><div class="col-text">6 principios como <strong>parámetros de interpretación y control judicial</strong>: reconocimiento de los animales como <span class="hl">seres sintientes</span>, protección contra el sufrimiento, control ético poblacional, salud pública, educación y equilibrio de fauna urbana. Sin estos principios, las decisiones administrativas contrarias al espíritu protector no podían cuestionarse jurídicamente.</div></div>
+    </div>
+  </div>
+
+  <div class="card" data-tags="nuevo">
+    <div class="card-header">
+      <span class="card-art-badge new">Art. 3 — Nueva</span>
+      <span class="card-title">Glosario de definiciones (sin equivalente en la vigente)</span>
+      <div class="badge-row"><span class="badge nuevo">NUEVO</span></div>
+    </div>
+    <div class="card-body single">
+      <div class="col-new"><div class="col-label new">Nueva — Sin equivalente</div><div class="col-text">Define 9 términos que operativizan el régimen: <em>tenencia responsable, animal comunitario, abandono, reproducción irresponsable, control ético poblacional, sufrimiento evitable, riesgo sanitario grave, hogares de tránsito, APP</em>. Sin estas definiciones, la interpretación quedaba librada a la discrecionalidad del funcionario aplicador.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- 2 — TENENCIA Y PROHIBICIONES -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-num">CAP. II</span>
+    <span class="section-title">Tenencia responsable y prohibiciones ampliadas</span>
+    <span class="section-count">3 cambios</span>
+  </div>
+
+  <div class="card" data-tags="modificado">
+    <div class="card-header">
+      <span class="card-art-badge mod">Art. 2 Vigente / Arts. 5–6 Nueva</span>
+      <span class="card-title">Obligaciones del responsable — ampliación sustancial</span>
+      <div class="badge-row"><span class="badge modificado">MODIFICADO</span></div>
+    </div>
+    <div class="card-body">
+      <div class="col-old"><div class="col-label old">Vigente</div><div class="col-art">Art. 2°</div><div class="col-text">6 prohibiciones genéricas (no abandonar, no maltratar). <strong>Sin obligaciones positivas</strong> de cuidado activo ni castración.</div></div>
+      <div class="col-new"><div class="col-label new">Nueva</div><div class="col-art">Arts. 5–6</div><div class="col-text">Suma obligaciones <strong>positivas</strong>: alimentación, refugio, atención veterinaria. Obligación expresa de <span class="hl">castración oportuna</span>. Prohibiciones ampliadas a 10 incisos, incluyendo encadenamiento permanente como infracción autónoma.</div></div>
+    </div>
+  </div>
+
+  <div class="card" data-tags="nuevo polemico">
+    <div class="card-header">
+      <span class="card-art-badge pol">Art. 6 inc. j — Nueva</span>
+      <span class="card-title">Prohibición de fotografías y selfies con animales en espacios públicos</span>
+      <div class="badge-row"><span class="badge nuevo">NUEVO</span><span class="badge polemico">⚠ POLÉMICO</span></div>
+    </div>
+    <div class="card-body single">
+      <div class="col-new"><div class="col-label new">Nueva — Sin equivalente</div><div class="col-art">Art. 6 inc. j)</div>
+      <div class="col-text">Prohíbe el uso de <span class="hl-rose">équidos, camélidos, bóvidos u otros animales de producción o fauna no doméstica</span> en espacios públicos para fotografías o selfies con particulares, sean o no onerosas.
+      <div class="polemico-callout"><span class="polemico-callout-title">⚠ Controversia potencial</span>Puede entrar en conflicto con ferias, eventos rurales y actividades turísticas donde se utilizan animales como atracción fotográfica. La prohibición abarca tanto actividades comerciales como gratuitas.</div>
+      </div></div>
+    </div>
+  </div>
+
+  <div class="card" data-tags="modificado">
+    <div class="card-header">
+      <span class="card-art-badge mod">Arts. 31–33 Vigente / Art. 4 Nueva</span>
+      <span class="card-title">Autoridad: C.M.S.A.Z. → Dirección de Medioambiente y Salud Animal</span>
+      <div class="badge-row"><span class="badge modificado">MODIFICADO</span></div>
+    </div>
+    <div class="card-body">
+      <div class="col-old"><div class="col-label old">Vigente</div><div class="col-art">Arts. 31–33</div><div class="col-text">El <strong>C.M.S.A.Z.</strong> opera como autoridad sin estructura orgánica formal ni dependencia jerárquica precisa. El recurso administrativo no tenía vía correcta.</div></div>
+      <div class="col-new"><div class="col-label new">Nueva</div><div class="col-art">Art. 4</div><div class="col-text"><span class="hl">Dirección de Medioambiente y Salud Animal</span>, dependiente de Secretaría de Medio Ambiente, Turismo y Producción. Habilita el recurso jerárquico ante el DEM de forma correcta.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- 3 — CONTROL POBLACIONAL -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-num">CAP. III</span>
+    <span class="section-title">Control ético poblacional — castración y eutanasia</span>
+    <span class="section-count">4 cambios</span>
+  </div>
+
+  <div class="card" data-tags="modificado">
+    <div class="card-header">
+      <span class="card-art-badge mod">Art. 25 Vigente / Art. 10 Nueva</span>
+      <span class="card-title">Castración masiva — fórmula OPS/OMS y meta del 15% anual</span>
+      <div class="badge-row"><span class="badge modificado">MODIFICADO</span></div>
+    </div>
+    <div class="card-body">
+      <div class="col-old"><div class="col-label old">Vigente</div><div class="col-art">Art. 25°</div><div class="col-text">Meta mínima del <strong>10% anual</strong>. Fórmula: 1 animal cada 2 personas en ciudades de más de 10.000 habitantes (→ ≈ 12.990 animales para Montecarlo, ≈ 1.299 castraciones/año mínimo). Incluye la obligación de <span class="hl-red">tatuar la letra C en el pabellón de la oreja</span> en cada animal castrado. Sin plan anual mensualizado ni resultados públicos.</div></div>
+      <div class="col-new"><div class="col-label new">Nueva</div><div class="col-art">Art. 10</div><div class="col-text">Meta elevada al <span class="hl">15% anual</span>. Fórmula actualizada a <span class="hl">OPS/OMS</span>: 1 canino + 1 felino cada 4 habitantes (resultado similar ≈ 12.990 para Montecarlo). <strong>Elimina el tatuado</strong>. Agrega plan anual con metas mensuales públicas y castración gratuita sin cupos arbitrarios.</div></div>
+    </div>
+  </div>
+
+  <div class="card" data-tags="modificado">
+    <div class="card-header">
+      <span class="card-art-badge mod">Art. 24 Vigente / Art. 14 Nueva</span>
+      <span class="card-title">Prohibición de eutanasia como control poblacional</span>
+      <div class="badge-row"><span class="badge modificado">MODIFICADO</span></div>
+    </div>
+    <div class="card-body">
+      <div class="col-old"><div class="col-label old">Vigente</div><div class="col-art">Art. 24°</div><div class="col-text">Prohibición amplia de eutanasia y sacrificio. Redacción que podría interpretarse como prohibición absoluta incluso en casos de sufrimiento irreversible.</div></div>
+      <div class="col-new"><div class="col-label new">Nueva</div><div class="col-art">Art. 14</div><div class="col-text">Prohíbe la eutanasia como <span class="hl">método de control poblacional</span>. La permite en tres causales taxativas con certificación veterinaria: sufrimiento irreversible, enfermedad terminal y <span class="hl">riesgo sanitario grave</span> debidamente acreditado.</div></div>
+    </div>
+  </div>
+
+  <div class="card" data-tags="nuevo polemico">
+    <div class="card-header">
+      <span class="card-art-badge pol">Art. 15 — Nueva</span>
+      <span class="card-title">Programa CER para colonias felinas comunitarias</span>
+      <div class="badge-row"><span class="badge nuevo">NUEVO</span><span class="badge polemico">⚠ POLÉMICO</span></div>
+    </div>
+    <div class="card-body single">
+      <div class="col-new"><div class="col-label new">Nueva — Sin equivalente</div><div class="col-art">Art. 15</div>
+      <div class="col-text">Crea el programa de <span class="hl">Captura, Esterilización y Retorno (CER)</span> para colonias felinas: gatos esterilizados, registrados y devueltos a su zona habitual con evaluación anual.
+      <div class="polemico-callout"><span class="polemico-callout-title">⚠ Controversia potencial</span>El programa institucionaliza la presencia de colonias felinas en espacios públicos y les otorga protección municipal. Genera resistencia en vecinos que prefieren la remoción total. Las colonias próximas a plazas, escuelas y centros de salud son históricamente fuente de conflicto barrial.</div>
+      </div></div>
+    </div>
+  </div>
+
+  <div class="card" data-tags="modificado">
+    <div class="card-header">
+      <span class="card-art-badge mod">Art. 27 Vigente / Art. 16 Nueva</span>
+      <span class="card-title">Castración en interés sanitario — procedimiento con garantías</span>
+      <div class="badge-row"><span class="badge modificado">MODIFICADO</span></div>
+    </div>
+    <div class="card-body">
+      <div class="col-old"><div class="col-label old">Vigente</div><div class="col-art">Art. 27°</div><div class="col-text">El CMSAZ <strong>"queda facultado expresamente"</strong> a exigir castración pese a negativa del propietario. Sin procedimiento, plazos ni garantías.</div></div>
+      <div class="col-new"><div class="col-label new">Nueva</div><div class="col-art">Art. 16</div><div class="col-text">Mantiene la facultad pero mediante <span class="hl">acto administrativo motivado</span>. El propietario dispone de 5 días hábiles de defensa. La castración compulsiva solo procede al agotamiento del procedimiento.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- 4 — LEISHMANIASIS -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-num">CAP. IV</span>
+    <span class="section-title">Leishmaniasis — no eutanasia automática · Alta conflictividad</span>
+    <span class="section-count">Capítulo sin equivalente en la vigente</span>
+  </div>
+
+  <div class="card" data-tags="nuevo polemico">
+    <div class="card-header">
+      <span class="card-art-badge pol">Arts. 17–19 — Nueva</span>
+      <span class="card-title">Principio de no eutanasia automática por diagnóstico de leishmaniasis canina</span>
+      <div class="badge-row"><span class="badge nuevo">NUEVO</span><span class="badge polemico">⚠ POLÉMICO</span></div>
+    </div>
+    <div class="card-body single">
+      <div class="col-new"><div class="col-label new">Nueva — Sin equivalente en la vigente</div><div class="col-art">Arts. 17–19</div>
+      <div class="col-text">La vigente no regula leishmaniasis. La nueva establece que <span class="hl-rose">la sola sospecha, diagnóstico o seropositividad no implicará eutanasia obligatoria automática</span>. Las intervenciones deben ajustarse a normativa sanitaria vigente y articularse con el Ministerio de Salud de Misiones y el SENASA. Se prioriza <strong>prevención ambiental y control vectorial</strong> sobre eliminación de animales. Toda acción sobre animales requiere fundamento veterinario documentado y notificación al propietario.
+      <div class="polemico-callout"><span class="polemico-callout-title">⚠ Mayor conflictividad — Tensión normativa interjurisdiccional</span>Misiones es zona endémica de leishmaniasis visceral. El criterio provincial históricamente avala la eutanasia de caninos seropositivos como medida de control epidemiológico. Esta ordenanza municipal contradice ese criterio. La norma municipal no puede derogar la normativa sanitaria provincial, pero puede generar fricciones operativas con los equipos de salud pública. La evidencia científica reciente cuestiona la eficacia de la eutanasia masiva como estrategia epidemiológica.</div>
+      </div></div>
+    </div>
+  </div>
+</div>
+
+<!-- 5 — ANIMALES COMUNITARIOS Y APP -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-num">CAPS. V y VII</span>
+    <span class="section-title">Animales comunitarios y Potencialmente Peligrosos</span>
+    <span class="section-count">2 capítulos nuevos</span>
+  </div>
+
+  <div class="card" data-tags="nuevo">
+    <div class="card-header">
+      <span class="card-art-badge new">Arts. 20–22 — Nueva</span>
+      <span class="card-title">Animales comunitarios — reconocimiento y protección formal</span>
+      <div class="badge-row"><span class="badge nuevo">NUEVO</span></div>
+    </div>
+    <div class="card-body">
+      <div class="col-old"><div class="col-label old">Vigente</div><div class="col-art">Art. 35°</div><div class="col-text">Ya los reconoce y protege: no pueden ser retirados de la vía pública salvo para vacunación/esterilización, y deben identificarse con collar con datos del protector y zona de tránsito. <strong>Protección básica existente.</strong></div></div>
+      <div class="col-new"><div class="col-label new">Nueva</div><div class="col-art">Arts. 20–22</div><div class="col-text">Expande la protección: registro formal en el Municipio, evaluación anual obligatoria, intervención reglada para casos de riesgo sanitario o conductual comprobado, y posibilidad de reubicación temporal con garantías. Formaliza lo que en la vigente era declarativo.</div></div>
+    </div>
+  </div>
+
+  <div class="card" data-tags="nuevo polemico">
+    <div class="card-header">
+      <span class="card-art-badge pol">Arts. 26–29 — Nueva</span>
+      <span class="card-title">APP: seguro de responsabilidad civil obligatorio, registro y bozal</span>
+      <div class="badge-row"><span class="badge nuevo">NUEVO</span><span class="badge polemico">⚠ POLÉMICO</span></div>
+    </div>
+    <div class="card-body single">
+      <div class="col-new"><div class="col-label new">Nueva — Sin equivalente</div><div class="col-art">Arts. 26–29</div>
+      <div class="col-text">Categorización <strong>individual y conductual</strong> (no por raza). El propietario de un APP debe: inscribirse en el Registro Municipal, mantener correa máxima 1,50 m y bozal, contratar <span class="hl-rose">seguro de responsabilidad civil obligatorio</span> e informar incidentes en 24 horas. Puede solicitar evaluación para desclasificar al animal.
+      <div class="polemico-callout"><span class="polemico-callout-title">⚠ Controversia potencial</span>El seguro de RC obligatorio no tiene antecedente municipal y suma carga económica al propietario. La clasificación por conducta es técnicamente más justa pero depende de la calidad del registro administrativo de incidentes. Errores en la categorización podrían generar reclamos.</div>
+      </div></div>
+    </div>
+  </div>
+</div>
+
+<!-- 6 — CRIADEROS Y COMERCIALIZACIÓN -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-num">CAP. VIII</span>
+    <span class="section-title">Criaderos y comercialización — prohibición absoluta</span>
+    <span class="section-count">3 cambios</span>
+  </div>
+
+  <div class="card" data-tags="eliminado polemico">
+    <div class="card-header">
+      <span class="card-art-badge del">Arts. 12–13 Vigente → ELIMINADOS</span>
+      <span class="card-title">Regulación de venta de animales y establecimientos comerciales</span>
+      <div class="badge-row"><span class="badge eliminado">ELIMINADO</span><span class="badge polemico">⚠ POLÉMICO</span></div>
+    </div>
+    <div class="card-body">
+      <div class="col-old"><div class="col-label del">Vigente — Eliminado</div><div class="col-art">Arts. 12–13°</div><div class="col-text">Art. 12: Venta a menores con adulto responsable. Art. 13: Establecimientos de compra-venta con condiciones sanitarias y habilitación municipal. <strong>La venta era legal y regulada.</strong></div></div>
+      <div class="col-new"><div class="col-label new">Nueva</div><div class="col-art">Art. 30</div>
+      <div class="col-text"><span class="hl-red">Toda comercialización de animales domésticos queda prohibida.</span> No hay establecimientos de venta porque no pueden existir.
+      <div class="polemico-callout"><span class="polemico-callout-title">⚠ Controversia potencial</span>Elimina una actividad económica hoy legal. Afecta a pet shops y criadores establecidos sin período de transición específico ni compensación.</div>
+      </div></div>
+    </div>
+  </div>
+
+  <div class="card" data-tags="modificado polemico">
+    <div class="card-header">
+      <span class="card-art-badge pol">Art. 39 Vigente / Art. 30 Nueva</span>
+      <span class="card-title">Criaderos: de prohibición vaga a prohibición absoluta con prueba automática</span>
+      <div class="badge-row"><span class="badge modificado">MODIFICADO</span><span class="badge polemico">⚠ POLÉMICO</span></div>
+    </div>
+    <div class="card-body">
+      <div class="col-old"><div class="col-label old">Vigente</div><div class="col-art">Art. 39°</div><div class="col-text">Prohíbe <em>"criadores de perros y gatos"</em> con redacción vaga. Sin mecanismo de prueba ni consecuencias específicas. De difícil aplicación práctica.</div></div>
+      <div class="col-new"><div class="col-label new">Nueva</div><div class="col-art">Art. 30</div><div class="col-text">Prohíbe criaderos de <span class="hl">cualquier especie doméstica</span>, con o sin fines lucrativos. La <span class="hl-rose">publicidad o promoción de venta constituye prueba de la infracción</span> por sí sola. La reincidencia es falta muy grave agravada.</div></div>
+    </div>
+  </div>
+
+  <div class="card" data-tags="eliminado">
+    <div class="card-header">
+      <span class="card-art-badge del">Art. 36 Vigente → ELIMINADO</span>
+      <span class="card-title">Partida presupuestaria atada al ejercicio 2020 — caducada</span>
+      <div class="badge-row"><span class="badge eliminado">ELIMINADO</span></div>
+    </div>
+    <div class="card-body">
+      <div class="col-old"><div class="col-label del">Vigente — Eliminado</div><div class="col-art">Art. 36°</div><div class="col-text">El DEM debía <strong>"disponer la partida del Presupuesto Anual 2020"</strong>. La norma era inaplicable en sus propios términos desde hace 5 años.</div></div>
+      <div class="col-new"><div class="col-label new">Nueva</div><div class="col-art">Art. 68</div><div class="col-text">El DEM deberá prever <span class="hl">anualmente</span> una partida específica para la Dirección, el SEV y los programas de castración, rescate y educación. Sin referencia a ejercicio particular.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- 7 — PROPIEDAD HORIZONTAL -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-num">ART. 33</span>
+    <span class="section-title">Animales en propiedad horizontal</span>
+    <span class="section-count">1 cambio</span>
+  </div>
+
+  <div class="card" data-tags="modificado polemico">
+    <div class="card-header">
+      <span class="card-art-badge pol">Art. 9 inc.1 Vigente / Art. 33 Nueva</span>
+      <span class="card-title">Permanencia habitual vs. tránsito ocasional en espacios comunes</span>
+      <div class="badge-row"><span class="badge modificado">MODIFICADO</span><span class="badge polemico">⚠ POLÉMICO</span></div>
+    </div>
+    <div class="card-body">
+      <div class="col-old"><div class="col-label old">Vigente</div><div class="col-art">Art. 9° inc. 1)</div><div class="col-text">Prohíbe la <strong>permanencia</strong> de animales en áreas comunes de edificios, hoteles, hospitales y locales de alimentos. Sin distinción entre permanencia y tránsito.</div></div>
+      <div class="col-new"><div class="col-label new">Nueva</div><div class="col-art">Art. 33</div>
+      <div class="col-text">Prohíbe la <span class="hl">permanencia habitual</span> en halls, pasillos, escaleras, ascensores, cocheras y jardines compartidos. <strong>Permite expresamente el tránsito ocasional</strong> para ingreso/egreso y animales de asistencia.
+      <div class="polemico-callout"><span class="polemico-callout-title">⚠ Controversia potencial</span>La distinción permanencia habitual / tránsito ocasional puede generar conflictos entre vecinos y administradores de consorcio sobre qué configura cada categoría. Su aplicación concreta dependerá de los reglamentos internos.</div>
+      </div></div>
+    </div>
+  </div>
+</div>
+
+<!-- 8 — RESCATE Y EMERGENCIAS -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-num">CAPS. XI–XII</span>
+    <span class="section-title">Rescate, hogares de tránsito y emergencias veterinarias</span>
+    <span class="section-count">3 cambios</span>
+  </div>
+
+  <div class="card" data-tags="nuevo">
+    <div class="card-header">
+      <span class="card-art-badge new">Arts. 38–44 — Nueva</span>
+      <span class="card-title">Protocolo interinstitucional de rescate con tiempos de respuesta</span>
+      <div class="badge-row"><span class="badge nuevo">NUEVO</span></div>
+    </div>
+    <div class="card-body">
+      <div class="col-old"><div class="col-label old">Vigente</div><div class="col-art">Art. 16° (decomiso)</div><div class="col-text">Solo menciona el decomiso como sanción. Sin protocolo, tiempos ni articulación institucional.</div></div>
+      <div class="col-new"><div class="col-label new">Nueva</div><div class="col-art">Arts. 38–44</div><div class="col-text">Protocolo con <span class="hl">tiempos máximos de respuesta</span>, articulación con Policía, Juzgado de Paz, veterinarios y ONG. Prevé resguardo preventivo, asistencia inmediata, decomiso y adopción responsable. El <strong>costo de manutención es a cargo del infractor</strong>.</div></div>
+    </div>
+  </div>
+
+  <div class="card" data-tags="nuevo">
+    <div class="card-header">
+      <span class="card-art-badge new">Arts. 45 y 47–49 — Nueva</span>
+      <span class="card-title">Hogares de tránsito + SEV: de aspiración a estructura real</span>
+      <div class="badge-row"><span class="badge nuevo">NUEVO</span></div>
+    </div>
+    <div class="card-body">
+      <div class="col-old"><div class="col-label old">Vigente</div><div class="col-art">Art. 29°</div><div class="col-text"><em>"Se apuntará a tener un servicio de emergencia."</em> Sin estructura, presupuesto, guardia ni hogares de tránsito.</div></div>
+      <div class="col-new"><div class="col-label new">Nueva</div><div class="col-art">Arts. 45, 47–49</div><div class="col-text">Hogares de tránsito: registro <span class="hl">voluntario, gratuito y con asistencia municipal</span>. SEV: número público, guardia en fines de semana, vehículo equipado. Las guardias veterinarias son <span class="hl">estrictamente voluntarias</span> — inscripción y baja libres. Partida presupuestaria obligatoria.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- 9 — SANCIONES -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-num">CAP. XIV</span>
+    <span class="section-title">Régimen sancionatorio — reforma integral</span>
+    <span class="section-count">5 cambios</span>
+  </div>
+
+  <div class="card" data-tags="modificado">
+    <div class="card-header">
+      <span class="card-art-badge mod">Arts. 15–17 Vigente / Arts. 59–61 Nueva</span>
+      <span class="card-title">Multas: pesos nominales → Unidades Fiscales (antiinflacionarias)</span>
+      <div class="badge-row"><span class="badge modificado">MODIFICADO</span></div>
+    </div>
+    <div class="card-body">
+      <div class="col-old"><div class="col-label old">Vigente</div><div class="col-art">Arts. 15–17°</div><div class="col-text">Multas en <strong>Unidades Fijas (U.F.)</strong>. Escala: leves 10–20 UF, graves 20–30 UF, gravísimas 30–60 UF. La escala era baja y sin inhabilitación de tenencia como sanción posible.</div></div>
+      <div class="col-new"><div class="col-label new">Nueva</div><div class="col-art">Arts. 59–61</div><div class="col-text">Cambia a <span class="hl">Unidades Fiscales</span> con escala drásticamente mayor: leves 20–100 UF, graves 100–500 UF, muy graves 500–3.000 UF. Incorpora <span class="hl">inhabilitación para la tenencia</span> como sanción. La escala es hasta 50 veces superior en el tope máximo.</div></div>
+    </div>
+  </div>
+
+  <div class="card" data-tags="modificado">
+    <div class="card-header">
+      <span class="card-art-badge mod">Art. 18 Vigente / Art. 64 Nueva</span>
+      <span class="card-title">Procedimiento sancionatorio — garantías del debido proceso reforzadas</span>
+      <div class="badge-row"><span class="badge modificado">MODIFICADO</span></div>
+    </div>
+    <div class="card-body">
+      <div class="col-old"><div class="col-label old">Vigente</div><div class="col-art">Art. 18°</div><div class="col-text"><strong>3 días hábiles</strong> de defensa. Si el propietario no paga los gastos, la norma establece que <span class="hl-red">"se entenderá que admite los hechos imputados, renunciando a la propiedad del animal"</span> — cláusula que la vigente ya tenía y que la nueva corrige eliminándola. Recurso ante el Intendente (sin revocatoria previa).</div></div>
+      <div class="col-new"><div class="col-label new">Nueva</div><div class="col-art">Art. 64</div><div class="col-text"><span class="hl">10 días hábiles</span> de defensa. Recursos: revocatoria ante la Dirección (5 días) + jerárquico ante el DEM. La negativa de pago solo habilita cobro ejecutivo: <span class="hl">sin presunción de culpabilidad</span>.</div></div>
+    </div>
+  </div>
+
+  <div class="card" data-tags="nuevo">
+    <div class="card-header">
+      <span class="card-art-badge new">Art. 62 — Nueva</span>
+      <span class="card-title">Reincidencia: definición precisa y agravantes automáticos</span>
+      <div class="badge-row"><span class="badge nuevo">NUEVO</span></div>
+    </div>
+    <div class="card-body single">
+      <div class="col-new"><div class="col-label new">Nueva</div><div class="col-art">Art. 62</div><div class="col-text">Define reincidencia: <span class="hl">misma categoría dentro de 2 años</span> desde firmeza de sanción anterior. Agravantes automáticos: duplicación de multa, inhabilitación de tenencia 1–3 años (graves reiteradas), inhabilitación definitiva con restitución forzosa (muy graves reiteradas), seguimiento mensual obligatorio.</div></div>
+    </div>
+  </div>
+
+  <div class="card" data-tags="nuevo polemico">
+    <div class="card-header">
+      <span class="card-art-badge pol">Arts. 65 y 72 — Nueva</span>
+      <span class="card-title">Inhabilitación para integrar Comisiones Vecinales — nueva sanción cívica</span>
+      <div class="badge-row"><span class="badge nuevo">NUEVO</span><span class="badge nuevo-tipo">NUEVO TIPO</span><span class="badge polemico">⚠ POLÉMICO</span></div>
+    </div>
+    <div class="card-body single">
+      <div class="col-new"><div class="col-label new">Nueva — Sin precedente municipal</div><div class="col-art">Art. 65 + Art. 72 (modifica Ord. III-N°2, Estatuto Comisiones Vecinales)</div>
+      <div class="col-text">Infracción muy grave o reincidencia en grave produce, de pleno derecho, <span class="hl-rose">inhabilitación del infractor para integrar la Comisión Directiva de cualquier Comisión Vecinal</span>. Duración igual a la sanción principal. El Art. 72 modifica expresamente el Estatuto de Comisiones Vecinales incorporando este impedimento como causal de inelegibilidad.
+      <div class="polemico-callout"><span class="polemico-callout-title">⚠ Inédito — Primera sanción cívica accesoria por maltrato animal en el municipio</span>Puede percibirse como desproporcionada. Potencial impugnación: una ordenanza sectorial que modifica el estatuto de asociaciones civiles (aunque reconocidas municipalmente) podría cuestionarse si estas entidades alegan autonomía estatutaria privada.</div>
+      </div></div>
+    </div>
+  </div>
+</div>
+
+<!-- TABLA ÍNDICE -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-num">ÍNDICE</span>
+    <span class="section-title">Tabla de correspondencia articular completa</span>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Art. VIGENTE</th><th>Art. NUEVA</th><th>Materia</th><th>Tipo</th></tr></thead>
+      <tbody>
+        <tr><td>—</td><td><strong>1–3</strong></td><td>Objeto, Principios, Definiciones</td><td><span class="tag nuevo">NUEVO</span></td></tr>
+        <tr><td>1 (parcial)</td><td><strong>4</strong></td><td>Autoridad: CMSAZ → Dirección de Medioambiente y Salud Animal</td><td><span class="tag modificado">MODIFICADO</span></td></tr>
+        <tr><td>2–3</td><td><strong>5–9</strong></td><td>Tenencia responsable, prohibiciones ampliadas (incl. selfies ⚠), fiscalización</td><td><span class="tag modificado">MODIFICADO</span></td></tr>
+        <tr><td>25, 28, 30</td><td><strong>10–16</strong></td><td>Castración (meta 15% OPS/OMS), plan anual, CER ⚠, eutanasia, castración compulsiva</td><td><span class="tag modificado">MODIFICADO</span></td></tr>
+        <tr><td>26</td><td><strong>17–19</strong></td><td>Leishmaniasis — no eutanasia automática ⚠</td><td><span class="tag polemico">POLÉMICO</span></td></tr>
+        <tr><td>35</td><td><strong>20–22</strong></td><td>Animales comunitarios — reconocimiento formal y protección</td><td><span class="tag nuevo">NUEVO</span></td></tr>
+        <tr><td>—</td><td><strong>23–25</strong></td><td>Identificación y registro, vacunación antirrábica</td><td><span class="tag nuevo">NUEVO</span></td></tr>
+        <tr><td>—</td><td><strong>26–29</strong></td><td>APP: seguro RC obligatorio ⚠, bozal, evaluación conductual</td><td><span class="tag polemico">POLÉMICO</span></td></tr>
+        <tr><td>39</td><td><strong>30</strong></td><td>Criaderos y comercialización — prohibición absoluta ⚠</td><td><span class="tag polemico">POLÉMICO</span></td></tr>
+        <tr><td>23</td><td><strong>31</strong></td><td>Riñas de gallos y peleas de animales</td><td><span class="tag modificado">MODIFICADO</span></td></tr>
+        <tr><td>34</td><td><strong>32</strong></td><td>Animales de asistencia y terapia</td><td><span class="tag modificado">MODIFICADO</span></td></tr>
+        <tr><td>9 inc. 1</td><td><strong>33</strong></td><td>Propiedad horizontal — permanencia habitual vs. tránsito ⚠</td><td><span class="tag polemico">POLÉMICO</span></td></tr>
+        <tr><td>6–8, 11</td><td><strong>34–38</strong></td><td>Circulación, transporte, animales de otros municipios</td><td><span class="tag modificado">MODIFICADO</span></td></tr>
+        <tr><td>16</td><td><strong>39–45</strong></td><td>Rescate, protección, hogares de tránsito</td><td><span class="tag nuevo">NUEVO</span></td></tr>
+        <tr><td>31–33, 37</td><td><strong>46–53</strong></td><td>Funciones Dirección, SEV voluntario, registro veterinarios</td><td><span class="tag modificado">MODIFICADO</span></td></tr>
+        <tr><td>38</td><td><strong>54–56</strong></td><td>Educación, Consejo Asesor de Bienestar Animal, participación ONG</td><td><span class="tag nuevo">NUEVO</span></td></tr>
+        <tr><td>15–19</td><td><strong>57–65</strong></td><td>Sanciones UF, reincidencia, sanción educativa, procedimiento, inhabilitación cívica</td><td><span class="tag modificado">MODIFICADO</span></td></tr>
+        <tr><td>—</td><td><strong>66–68</strong></td><td>Destino de fondos, transparencia, partida presupuestaria anual</td><td><span class="tag nuevo">NUEVO</span></td></tr>
+        <tr><td>21–22, 40</td><td><strong>69–75</strong></td><td>Convenios, reglamentación, modificación Estatuto CV, derogación expresa</td><td><span class="tag modificado">MODIFICADO</span></td></tr>
+        <tr><td style="color:var(--red)">12–13 (venta)</td><td style="color:var(--red)">—</td><td>Regulación de establecimientos y venta de animales</td><td><span class="tag eliminado">ELIMINADO</span></td></tr>
+        <tr><td style="color:var(--red)">14 (comercio)</td><td style="color:var(--red)">—</td><td>Comercio ambulante de animales</td><td><span class="tag eliminado">ELIMINADO</span></td></tr>
+        <tr><td style="color:var(--red)">36 (presup.)</td><td style="color:var(--red)">—</td><td>Partida presupuestaria Ejercicio 2020</td><td><span class="tag eliminado">ELIMINADO</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="no-results" id="noResults">No se encontraron resultados para los filtros aplicados.</div>
+</main>
+
+<footer>
+  <div class="footer-line">
+    <strong>Parlamento Municipal de la Mujer — Montecarlo</strong>
+    <span class="footer-dot"></span>
+    <span>Secretaría del Digesto Jurídico · HCD Montecarlo</span>
+  </div>
+  <div>Documento de trabajo generado con asistencia de IA · Sujeto a revisión del plenario · Mayo 2026</div>
+</footer>
+
+<script>
+const cards=document.querySelectorAll('.card');
+const btns=document.querySelectorAll('.filter-btn');
+const search=document.getElementById('searchBox');
+const noRes=document.getElementById('noResults');
+let activeF='all',term='';
+function applyFilters(){
+  let v=0;
+  cards.forEach(c=>{
+    const tags=(c.dataset.tags||'').split(' ');
+    const txt=c.textContent.toLowerCase();
+    const mF=activeF==='all'||tags.includes(activeF);
+    const mS=!term||txt.includes(term);
+    c.classList.toggle('hidden',!(mF&&mS));
+    if(mF&&mS)v++;
+  });
+  noRes.classList.toggle('visible',v===0);
+  document.querySelectorAll('.section').forEach(s=>{
+    const any=[...s.querySelectorAll('.card')].some(c=>!c.classList.contains('hidden'));
+    s.style.display=any?'':'none';
+  });
+}
+btns.forEach(b=>b.addEventListener('click',()=>{
+  btns.forEach(x=>x.classList.remove('active'));
+  b.classList.add('active');
+  activeF=b.dataset.filter;
+  applyFilters();
+}));
+search.addEventListener('input',e=>{term=e.target.value.toLowerCase().trim();applyFilters();});
+</script>
+</body>
+</html>
